@@ -1,20 +1,25 @@
+#include <stdio.h>
 #include "main.h"
-#include<stdio.h>
-#include<unistd.h>
+
 /**
-* print_alphabet - prints the alphabet, in lowercase, followed by a new line
-*/
-void print_alphabet(void)
+ * main - Function main entry
+ *
+ * Program that prints _putchar, followed by a new line
+ *
+ * Return: always 0 (success)
+ */
+
+int main(void)
 {
-	char ch;
+	char s[9] = "_putchar";
+	int i = 0;
 
-	ch = 'a';
-
-	while (ch <= 'z')
+	while (i < 8)
 	{
-		_putchar(ch);
-		ch++;
+		_putchar(s[i]);
+		i++;
 	}
-
 	_putchar('\n');
+
+	return (0);
 }
