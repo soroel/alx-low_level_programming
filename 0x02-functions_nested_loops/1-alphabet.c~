@@ -6,7 +6,7 @@
 *program that prints the alphabets in lowercase followed by a new line
 *return: always 0 (success)
 */
-void print_alphabet(void)
+void print_alphabet(void);
 {
 	char c;
 
