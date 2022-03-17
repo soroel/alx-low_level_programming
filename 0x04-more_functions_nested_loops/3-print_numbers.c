@@ -1,20 +1,14 @@
 #include "main.h"
 
 /**
- * print_numbers - prints numbers
- * Return:0
+ * print_numbers - Prints the numbers from 0-9 except for 2 and 4.
  */
-
 void print_numbers(void)
 {
-	char n = 0;
+	int i;
 
-	while (n <= 9)
-	{
-		_putchar('0' + n);
-		n++;
+	for (i = 0; i < 10; i++)
+		_putchar(i + 48);
 
-	}
 	_putchar('\n');
-
 }
