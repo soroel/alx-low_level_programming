@@ -1,1 +1,1 @@
-finds and prints the largest prime factor of the number 
+draws a straight line in the terminal
