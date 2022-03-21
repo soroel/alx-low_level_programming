@@ -1,1 +1,1 @@
-function that swaps the values of two integers
+function that returns length of a string
