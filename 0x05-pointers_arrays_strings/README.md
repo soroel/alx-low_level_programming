@@ -1,1 +1,1 @@
-function that returns length of a string
+function that prints a string, followed by a new line, to stdout
