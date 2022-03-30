@@ -9,7 +9,7 @@
  */
 int _sqrt_recursion(int n)
 {
-	return (__sqrt(n, 1));
+	return (sqrt(n, 1));
 }
 
 /**
