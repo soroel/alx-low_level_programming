@@ -48,7 +48,6 @@ return (m);
  * @s: string to check
  * Return: int
  */
-
 unsigned int nbr_spaces(char *s)
 {
 	int i, cmpt = 0;
