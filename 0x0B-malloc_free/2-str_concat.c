@@ -1,16 +1,22 @@
+#include <stdlib.h>
+
+#include <stdio.h>
+
 #include "main.h"
 
 
 
 /**
 
- * _strlen - length of a string
+ * _strlen - find length of a string
 
- * @s: input char
+ * @s: string
 
- * Return: length of a string
+ * Return: int
 
  */
+
+
 
 
 
@@ -18,21 +24,13 @@ int _strlen(char *s)
   
 {
   
-  int l = 0;
+  int size = 0;
   
-
-  
-  while (*s != '\0')
+  for (; s[size] != '\0'; size++)
     
-    {
-      
-      s++;
-      
-      l++;
-      
-    }
+    ;
   
-  return (l);
+  return (size);
   
 }
 
@@ -40,13 +38,13 @@ int _strlen(char *s)
 
 /**
 
- * str_concat - Concat 2 strings.
+ * *str_concat - concatenates two strings
 
- * @s1: string
+ * @s1: string 1
 
- * @s2: string
+ * @s2: string 2
 
- * Return: char
+ * Return: pointer
 
  */
 
@@ -56,54 +54,50 @@ char *str_concat(char *s1, char *s2)
   
 {
   
-  unsigned int l1, l2;
+  int size1, size2, i;
   
-  char *conc, *tmp;
-  
-
-  
-  if (!s1)
-    
-    s1 = "";
-  
-  else
-    
-    l1 = _strlen(s1);
+  char *m;
   
 
   
-  if (!s2)
+  if (s1 == NULL)
     
-    s2 = "";
+    s1 = "\0";
   
-  else
+  if (s2 == NULL)
     
-    l2 = _strlen(s2);
+    s2 = "\0";
   
 
   
-  conc = malloc(l1 + l2 + 1);
+  size1 = _strlen(s1);
   
-  if (!conc)
+  size2 = _strlen(s2);
+  
+  m = malloc((size1 + size2) *sizeof(char) + 1);
+  
+  if (m == 0)
     
     return (0);
   
 
   
-  tmp = conc;
-  
-  while (*s1)
+  for (i = 0; i <= size1 + size2; i++)
     
-    *tmp++ = *s1++;
+    {
+      
+      if (i < size1)
+	
+	m[i] = s1[i];
+      
+      else
+	
+	m[i] = s2[i - size1];
+      
+    }
   
-
+  m[i] = '\0';
   
-  while ((*tmp++ = *s2++))
-    
-    ;
-  
-
-  
-  return (conc);
+  return (m);
   
 }
