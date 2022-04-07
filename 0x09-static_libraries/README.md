@@ -1,1 +1,1 @@
-static library containing functions
+script that creates static library
