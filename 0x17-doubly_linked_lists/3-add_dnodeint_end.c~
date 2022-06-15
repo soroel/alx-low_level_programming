@@ -1,38 +1,39 @@
 #include "lists.h"
-#include <string.h>
-#include <stdio.h>
 
 /**
- * add_dnodeint_end - add a node at the end of a linked list
- * @head: The character to print
- * @n: string for the new node
- *
- * Return: new node
+ * add_dnodeint_end - add a node at the end of a d list
+ * @head: the head
+ * @n: the int to add
+ * Return: address of new node or NULL
  */
-
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *current;
-	dlistint_t *new_node;
+	/*declarations */
+	dlistint_t *new = malloc(sizeof(dlistint_t));
+	dlistint_t *location;
 
-	current = *head;
-	while (current && current->next != NULL)
-		current = current->next;
-
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
+	/* check for null && malloc fail, free new if it exists, return NULL */
+	if (!head || !new)
+		return (new ? free(new), NULL : NULL);
+	/* assign some things to new */
+	new->n = n;
+	new->next = NULL;
+	/* if there are no other nodes make new the first and last */
+	if (!*head)
 	{
-		free(new_node);
-		return (NULL);
+		new->prev = NULL;
+		*head = new;
 	}
-	new_node->n = n;
-	new_node->next = NULL;
-    new_node->prev = current;
-
-	if (current)
-		current->next = new_node;
+	/* otherwise, find the end and install new */
 	else
-		*head = new_node;
-
-	return (new_node);
+	{
+		location = *head;
+		while (location->next)
+		{
+			location = location->next;
+		}
+		location->next = new;
+		new->prev = location;
+	}
+	return (new);
 }
