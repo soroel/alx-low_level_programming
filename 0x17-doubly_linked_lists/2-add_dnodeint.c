@@ -1,4 +1,6 @@
 #include "lists.h"
+#include<stdio.h>
+#include<stdlib.h>
 
 /**
  * add_dnodeint - add a node at head of d list
